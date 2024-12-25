@@ -6,12 +6,15 @@ import SocialLogin from "../shared/SocialLogin";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2"; // Import SweetAlert2
-import { useNavigate } from "react-router-dom"; // Import useNavigate to redirect
+import { useLocation, useNavigate } from "react-router-dom"; // Import useNavigate to redirect
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { signInUser } = useContext(AuthContext);
-  const navigate = useNavigate(); // Hook to navigate to the home page
+  const location = useLocation();
+  const navigate = useNavigate();
+  console.log("in signIn page", location);
+  const from = location.state || "/";
 
   const handleSignIn = (e) => {
     e.preventDefault();
@@ -29,9 +32,9 @@ const SignIn = () => {
           title: "Sign In Successful!",
           text: "You have signed in successfully.",
           icon: "success",
-          confirmButtonText: "Go to Home",
+          confirmButtonText: "Go to Details Page",
         }).then(() => {
-          navigate("/"); // Redirect to home page after success
+          navigate(from); // Redirect to home page after success
         });
       })
       .catch((error) => {

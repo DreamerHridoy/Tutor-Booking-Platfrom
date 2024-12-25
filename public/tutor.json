@@ -1,0 +1,101 @@
+[
+  {
+    "id": 1,
+    "name": "Emily Johnson",
+    "image": "https://i.ibb.co.com/z5zTCTC/stylish-woman-posing-with-confidence-outdoors.jpg",
+    "language": "English",
+    "price": 20,
+    "review": 4.9,
+    "details": "Experienced English tutor specializing in conversational and academic English.",
+    "tutorEmail": "emily.johnson@example.com",
+    "courseId": "ENG101"
+  },
+  {
+    "id": 2,
+    "name": "Carlos Martinez",
+    "image": "https://i.ibb.co.com/CVVPRyN/smiling-showing-thumb-up-male-teacher-wearing-glasses-holding-abacus-sitting-table-with-school-tools.jpg",
+    "language": "Spanish",
+    "price": 18,
+    "review": 4.8,
+    "details": "Native Spanish speaker with 5 years of experience teaching language learners.",
+    "tutorEmail": "carlos.martinez@example.com",
+    "courseId": "SPA101"
+  },
+  {
+    "id": 3,
+    "name": "Marie Dubois",
+    "image": "https://i.ibb.co.com/8xxwS9f/strict-points-camera-young-female-teacher-sitting-desk-with-school-tools-classroom.jpg",
+    "language": "French",
+    "price": 25,
+    "review": 4.7,
+    "details": "Fluent French tutor focusing on grammar, vocabulary, and conversation practice.",
+    "tutorEmail": "marie.dubois@example.com",
+    "courseId": "FRE101"
+  },
+  {
+    "id": 4,
+    "name": "Hans Müller",
+    "image": "https://i.ibb.co.com/mTzm6S8/brooke-cagle-WHWYBmtn3-0-unsplash.jpg",
+    "language": "German",
+    "price": 22,
+    "review": 4.5,
+    "details": "Certified German tutor with a focus on pronunciation and business German.",
+    "tutorEmail": "hans.muller@example.com",
+    "courseId": "GER101"
+  },
+  {
+    "id": 5,
+    "name": "Alessandra Rossi",
+    "image": "https://i.ibb.co.com/cCJv1mQ/images-1.jpg",
+    "language": "Italian",
+    "price": 19,
+    "review": 4.6,
+    "details": "Italian tutor with a passion for teaching beginners and advanced learners alike.",
+    "tutorEmail": "alessandra.rossi@example.com",
+    "courseId": "ITA101"
+  },
+  {
+    "id": 6,
+    "name": "Wei Zhang",
+    "image": "https://i.ibb.co.com/1sTFPx9/online-math-tutor.png",
+    "language": "Chinese",
+    "price": 30,
+    "review": 4.9,
+    "details": "Mandarin Chinese expert with 8 years of teaching experience.",
+    "tutorEmail": "wei.zhang@example.com",
+    "courseId": "CHN101"
+  },
+  {
+    "id": 7,
+    "name": "Ahmed Al-Farsi",
+    "image": "https://i.ibb.co.com/LkTmc1Z/65c0efd6ebe159dbf237d396-Screen-Shot-2024-02-05-at-9-25-01-AM.webp",
+    "language": "Arabic",
+    "price": 20,
+    "review": 4.4,
+    "details": "Arabic tutor specializing in both Modern Standard Arabic and dialects.",
+    "tutorEmail": "ahmed.alfarsi@example.com",
+    "courseId": "ARA101"
+  },
+  {
+    "id": 8,
+    "name": "Sakura Tanaka",
+    "image": "https://i.ibb.co.com/GQr6Btz/How-To-Become-An-Online-Tutor-Know-all-about-it-1024x684.jpg",
+    "language": "Japanese",
+    "price": 27,
+    "review": 4.8,
+    "details": "Experienced Japanese tutor focusing on conversation and JLPT preparation.",
+    "tutorEmail": "sakura.tanaka@example.com",
+    "courseId": "JPN101"
+  },
+  {
+    "id": 9,
+    "name": "Pedro Silva",
+    "image": "https://i.ibb.co.com/5nB1M6Z/istockphoto-1223044329-612x612.jpg",
+    "language": "Portuguese",
+    "price": 15,
+    "review": 4.7,
+    "details": "Native Portuguese tutor with a focus on grammar and speaking skills.",
+    "tutorEmail": "pedro.silva@example.com",
+    "courseId": "POR101"
+  }
+]
