@@ -12,93 +12,111 @@ import LanguageCategories from "../pages/Home/LanguageCategories";
 import AddTutorial from "../pages/AddTutorial/AddTutorial";
 import MyTutorials from "../pages/MyTutorials/MyTutorials";
 import UpdateTutorial from "../pages/UpdateTutorials/UpdateTutorial";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayout></MainLayout>,
-    errorElement: <h2>Route not found</h2>,
+    element: <MainLayout />,
+    errorElement: <ErrorPage />,
     children: [
-      { path: "/", element: <Home></Home> },
+      { path: "/", element: <Home /> },
       {
         path: "/tutors/:id",
         element: (
           <PrivateRoute>
-            <TutorDetails></TutorDetails>
+            <TutorDetails />
           </PrivateRoute>
         ),
-
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/tutors/${params.id}`),
+        loader: async ({ params }) => {
+          try {
+            const response = await fetch(
+              `http://localhost:5000/tutors/${params.id}`
+            );
+            if (!response.ok) throw new Error("Failed to fetch tutor details");
+            return response.json();
+          } catch (error) {
+            console.error(error);
+            throw new Error("Loader failed");
+          }
+        },
       },
       {
         path: "/findTutor/:id",
         element: (
           <PrivateRoute>
-            <CategoryDetails></CategoryDetails>
+            <CategoryDetails />
           </PrivateRoute>
         ),
-
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/findTutors/${params.id}`),
+        loader: async ({ params }) => {
+          try {
+            const response = await fetch(
+              `http://localhost:5000/findTutors/${params.id}`
+            );
+            if (!response.ok)
+              throw new Error("Failed to fetch category details");
+            return response.json();
+          } catch (error) {
+            console.error(error);
+            throw new Error("Loader failed");
+          }
+        },
       },
-
       {
         path: "/findTutor",
         element: (
           <PrivateRoute>
-            <LanguageCategories></LanguageCategories>
+            <LanguageCategories />
           </PrivateRoute>
         ),
       },
       {
-        path: "bookTutor/:id",
+        path: "/bookTutor/:id",
         element: (
           <PrivateRoute>
-            <BookTutor></BookTutor>
+            <BookTutor />
           </PrivateRoute>
         ),
       },
       {
-        path: "addTutorials",
+        path: "/addTutorials",
         element: (
           <PrivateRoute>
-            <AddTutorial></AddTutorial>
+            <AddTutorial />
           </PrivateRoute>
         ),
       },
-
       {
-        path: "updateTutorial/:id",
+        path: "/updateTutorial/:id",
         element: (
           <PrivateRoute>
-            <UpdateTutorial></UpdateTutorial>
+            <UpdateTutorial />
           </PrivateRoute>
         ),
       },
       {
-        path: "myTutorials",
+        path: "/myTutorials",
         element: (
           <PrivateRoute>
-            <MyTutorials></MyTutorials>
+            <MyTutorials />
           </PrivateRoute>
         ),
       },
-
       {
-        path: "myBookTutor",
+        path: "/myBookTutor",
         element: (
           <PrivateRoute>
-            <MyBookTutor></MyBookTutor>
+            <MyBookTutor />
           </PrivateRoute>
         ),
       },
       {
-        path: "register",
-        element: <Register></Register>,
+        path: "/register",
+        element: <Register />,
       },
       {
-        path: "signIn",
-        element: <SignIn></SignIn>,
+        path: "/signIn",
+        element: <SignIn />,
       },
     ],
   },

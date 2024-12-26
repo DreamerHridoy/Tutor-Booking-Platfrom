@@ -1,3 +1,11 @@
+// /** @type {import('tailwindcss').Config} */
+// export default {
+//   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+//   theme: {
+//     extend: {},
+//   },
+//   plugins: [require("daisyui")],
+// };
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
@@ -5,4 +13,5 @@ export default {
     extend: {},
   },
   plugins: [require("daisyui")],
+  darkMode: "class", // Enable dark mode based on class
 };

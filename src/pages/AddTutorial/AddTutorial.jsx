@@ -1,17 +1,16 @@
 import React from "react";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const AddTutorial = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
+
   const handleAddTutorial = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    // console.log(formData.entries());
     const initialData = Object.fromEntries(formData.entries());
-    // console.log(initialData);
 
     fetch("http://localhost:5000/tutors", {
       method: "POST",
@@ -24,65 +23,72 @@ const AddTutorial = () => {
           Swal.fire({
             position: "top-end",
             icon: "success",
-            title: "New Tutor Added Succesfully",
+            title: "New Tutorial Added Successfully",
             showConfirmButton: false,
             timer: 1500,
           });
           navigate("/myTutorials");
         }
+      })
+      .catch(() => {
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "Failed to add tutorial. Please try again.",
+        });
       });
   };
+
   return (
-    <div>
-      <h2 className="text-3xl text-center ">Add Tutorials Page</h2>
-      <form onSubmit={handleAddTutorial} className="card-body">
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Name</span>
-          </label>
+    <div className="max-w-3xl mx-auto p-6 shadow-lg bg-white rounded-md">
+      <h2 className="text-3xl text-center font-bold mb-6">Add Tutorial</h2>
+      <form onSubmit={handleAddTutorial} className="space-y-4">
+        {/* Name Field */}
+        <div>
+          <label className="block font-medium">Name</label>
           <input
             type="text"
             name="name"
-            defaultValue={user?.value}
+            defaultValue={user?.displayName || ""}
             placeholder="Enter your name"
-            className="input input-bordered"
+            className="input input-bordered w-full"
             required
           />
         </div>
 
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Email</span>
-          </label>
+        {/* Email Field */}
+        <div>
+          <label className="block font-medium">Email</label>
           <input
             type="email"
             name="email"
-            defaultValue={user?.email}
+            defaultValue={user?.email || ""}
             placeholder="Enter your email"
-            className="input input-bordered"
+            className="input input-bordered w-full"
             required
           />
         </div>
 
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Image</span>
-          </label>
+        {/* Image Field */}
+        <div>
+          <label className="block font-medium">Image</label>
           <input
             type="file"
-            defaultValue={user?.image}
             name="image"
-            className="input input-bordered"
             accept="image/*"
+            className="file-input file-input-bordered w-full"
             required
           />
         </div>
 
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Language</span>
-          </label>
-          <select name="language" className="select select-bordered" required>
+        {/* Language Field */}
+        <div>
+          <label className="block font-medium">Language</label>
+          <select
+            name="language"
+            className="select select-bordered w-full"
+            required
+          >
             <option value="">Select a language</option>
             <option value="English">English</option>
             <option value="Spanish">Spanish</option>
@@ -91,47 +97,49 @@ const AddTutorial = () => {
           </select>
         </div>
 
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Price</span>
-          </label>
+        {/* Price Field */}
+        <div>
+          <label className="block font-medium">Price</label>
           <input
             type="number"
             name="price"
+            min="0"
             placeholder="Enter price"
-            className="input input-bordered"
+            className="input input-bordered w-full"
             required
           />
         </div>
 
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Description</span>
-          </label>
+        {/* Description Field */}
+        <div>
+          <label className="block font-medium">Description</label>
           <textarea
-            placeholder="Enter description"
             name="description"
-            className="textarea textarea-bordered"
+            placeholder="Enter description"
+            className="textarea textarea-bordered w-full"
             rows="4"
             required
           ></textarea>
         </div>
 
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Review</span>
-          </label>
-          <textarea
-            placeholder="Enter review or feedback"
+        {/* Review Field */}
+        <div>
+          <label className="block font-medium">Review</label>
+          <input
+            type="number"
             name="review"
-            className="textarea textarea-bordered"
-            rows="4"
-          ></textarea>
+            defaultValue="0"
+            min="0"
+            placeholder="Review (default 0)"
+            className="input input-bordered w-full"
+            required
+          />
         </div>
 
-        <div className="form-control mt-6">
-          <button className="btn btn-primary">Submit</button>
-        </div>
+        {/* Submit Button */}
+        <button type="submit" className="btn btn-primary w-full">
+          Submit
+        </button>
       </form>
     </div>
   );
