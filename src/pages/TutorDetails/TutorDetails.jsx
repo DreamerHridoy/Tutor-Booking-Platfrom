@@ -1,27 +1,44 @@
 import React, { useContext } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import AuthContext from "../../context/AuthContext/AuthContext";
+import Swal from "sweetalert2";
 
 const TutorDetails = () => {
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const { tutorEmail, _id, image, language, price, details } = useLoaderData();
   const handleBookTutor = () => {
+    const tutorDetailsInfo = {
+      email: user?.email,
+      tutorEmail,
+      image,
+      language,
+      price,
+      details,
+      tutorId: _id,
+    };
+
     fetch(`http://localhost:5000/bookTutors`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        email: user?.email,
-        tutorEmail,
-        image,
-        language,
-        price,
-        details,
-        tutorId: _id,
-      }),
-    });
+      body: JSON.stringify(tutorDetailsInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Tutor Added Succesfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          navigate("/myBookTutor");
+        }
+      });
   };
   return (
     <div className="max-w-md mx-auto bg-white border border-gray-200 rounded-lg shadow-md p-6">
