@@ -1,9 +1,11 @@
 import React from "react";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const AddTutorial = () => {
   const { user } = useAuth();
+  const navigate = useNavigate();
   const handleAddTutorial = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -26,6 +28,7 @@ const AddTutorial = () => {
             showConfirmButton: false,
             timer: 1500,
           });
+          navigate("/myTutorials");
         }
       });
   };

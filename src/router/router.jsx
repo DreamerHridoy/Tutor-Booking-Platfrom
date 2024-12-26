@@ -10,6 +10,8 @@ import MyBookTutor from "../pages/MyBookTutor";
 import CategoryDetails from "../pages/CategoryDetails/CategoryDetails";
 import LanguageCategories from "../pages/Home/LanguageCategories";
 import AddTutorial from "../pages/AddTutorial/AddTutorial";
+import MyTutorials from "../pages/MyTutorials/MyTutorials";
+import UpdateTutorial from "../pages/UpdateTutorials/UpdateTutorial";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -64,6 +66,24 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+
+      {
+        path: "updateTutorial/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateTutorial></UpdateTutorial>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "myTutorials",
+        element: (
+          <PrivateRoute>
+            <MyTutorials></MyTutorials>
+          </PrivateRoute>
+        ),
+      },
+
       {
         path: "myBookTutor",
         element: (
