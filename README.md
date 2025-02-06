@@ -1,7 +1,10 @@
-🎓 Tutor Booking Platform 📚
+                                                                    🎓 Tutor Booking Platform 📚
+
+
+
 Welcome to the Tutor Booking Platform—an innovative and user-friendly solution designed to connect students with qualified tutors across various subjects and languages. Whether you're looking to master a new language, improve academic performance, or gain expertise in specialized fields, our platform makes finding the right tutor easy, fast, and secure.
 
-<!-- You can replace this with your own banner image link -->
+
 
 🌟 Key Features
 🔎 Find Tutors Easily: Search and filter tutors based on subjects, expertise, and language preferences.
