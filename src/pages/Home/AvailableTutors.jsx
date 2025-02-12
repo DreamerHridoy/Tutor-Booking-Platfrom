@@ -4,7 +4,7 @@ import AvailableTutorCard from "./AvailableTutorCard";
 const AvailableTutors = () => {
   const [tutors, setTutors] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/tutors")
+    fetch("https://tutor-booking-platform-server-side.vercel.app/tutors")
       .then((res) => res.json())
       .then((data) => {
         setTutors(data);

@@ -19,7 +19,7 @@ const TutorDetails = () => {
       tutorId: _id,
     };
 
-    fetch(`http://localhost:5000/bookTutors`, {
+    fetch(`https://tutor-booking-platform-server-side.vercel.app/bookTutors`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

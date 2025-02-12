@@ -31,7 +31,7 @@ const router = createBrowserRouter([
         loader: async ({ params }) => {
           try {
             const response = await fetch(
-              `http://localhost:5000/tutors/${params.id}`
+              `https://tutor-booking-platform-server-side.vercel.app/tutors/${params.id}`
             );
             if (!response.ok) throw new Error("Failed to fetch tutor details");
             return response.json();
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
         loader: async ({ params }) => {
           try {
             const response = await fetch(
-              `http://localhost:5000/findTutors/${params.id}`
+              `https://tutor-booking-platform-server-side.vercel.app/findTutors/${params.id}`
             );
             if (!response.ok)
               throw new Error("Failed to fetch category details");

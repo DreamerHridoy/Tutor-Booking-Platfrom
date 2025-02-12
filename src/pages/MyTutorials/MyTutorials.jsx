@@ -7,7 +7,7 @@ const MyTutorials = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:5000/tutors")
+    fetch("https://tutor-booking-platform-server-side.vercel.app/tutors")
       .then((res) => res.json())
       .then((data) => setTutorials(data));
   }, []);
@@ -21,9 +21,12 @@ const MyTutorials = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/tutors/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://tutor-booking-platform-server-side.vercel.app/tutors/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {

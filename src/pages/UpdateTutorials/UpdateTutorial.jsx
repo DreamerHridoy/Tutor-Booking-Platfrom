@@ -8,7 +8,7 @@ const UpdateTutorial = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/tutors/${id}`)
+    fetch(`https://tutor-booking-platform-server-side.vercel.app/tutors/${id}`)
       .then((res) => res.json())
       .then((data) => setTutorial(data));
   }, [id]);
@@ -33,13 +33,16 @@ const UpdateTutorial = () => {
 
     const { _id, name, email, review, ...updateData } = tutorial;
 
-    fetch(`http://localhost:5000/tutors/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updateData),
-    })
+    fetch(
+      `https://tutor-booking-platform-server-side.vercel.app/tutors/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updateData),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {

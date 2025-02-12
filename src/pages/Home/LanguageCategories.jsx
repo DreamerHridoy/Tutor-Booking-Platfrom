@@ -4,7 +4,7 @@
 // const LanguageCategories = () => {
 //   const [categories, setCategories] = useState([]);
 //   useEffect(() => {
-//     fetch("http://localhost:5000/categories")
+//     fetch("https://tutor-booking-platform-server-side.vercel.app/categories")
 //       .then((res) => res.json())
 //       .then((data) => {
 //         setCategories(data);
@@ -44,7 +44,7 @@ const LanguageCategories = () => {
   const [searchTerm, setSearchTerm] = useState(""); // Search term state
 
   useEffect(() => {
-    fetch("http://localhost:5000/categories")
+    fetch("https://tutor-booking-platform-server-side.vercel.app/categories")
       .then((res) => res.json())
       .then((data) => {
         setCategories(data);

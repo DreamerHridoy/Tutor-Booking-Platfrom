@@ -12,7 +12,7 @@ const AddTutorial = () => {
     const formData = new FormData(e.target);
     const initialData = Object.fromEntries(formData.entries());
 
-    fetch("http://localhost:5000/tutors", {
+    fetch("https://tutor-booking-platform-server-side.vercel.app/tutors", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(initialData),

@@ -9,7 +9,9 @@ const MyBookTutor = () => {
   //   _id, name, image, language, price, review, details
 
   useEffect(() => {
-    fetch(`http://localhost:5000/bookTutors/${user.email}`)
+    fetch(
+      `https://tutor-booking-platform-server-side.vercel.app/bookTutors/${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setTutors(data);
