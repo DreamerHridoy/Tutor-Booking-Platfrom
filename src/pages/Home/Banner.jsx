@@ -4,7 +4,7 @@ import Tutor2 from "../../assets/Tutor/Tutor2.jpg";
 
 const Banner = () => {
   return (
-    <div className="hero bg-base-200 ">
+    <div className="hero bg-base-200 mt-12 ">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="flex-1">
           <motion.img

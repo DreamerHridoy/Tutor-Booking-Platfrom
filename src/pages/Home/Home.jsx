@@ -3,6 +3,7 @@ import Banner from "./Banner";
 import Stats from "./Stats";
 import LanguageCategories from "./LanguageCategories";
 import AvailableTutors from "./AvailableTutors";
+import Newsletter from "./Newsletter";
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <Stats></Stats>
       <LanguageCategories></LanguageCategories>
       <AvailableTutors></AvailableTutors>
+      <Newsletter></Newsletter>
     </div>
   );
 };

@@ -58,6 +58,9 @@ const LanguageCategories = () => {
 
   return (
     <div className="max-w-6xl mx-auto mt-8">
+      <h1 className="text-3xl font-bold mb-8 m-2 text-center">
+        Language Category{" "}
+      </h1>
       {/* Search Input */}
       <input
         type="text"
