@@ -13,6 +13,7 @@ import AddTutorial from "../pages/AddTutorial/AddTutorial";
 import MyTutorials from "../pages/MyTutorials/MyTutorials";
 import UpdateTutorial from "../pages/UpdateTutorials/UpdateTutorial";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import About from "../pages/MyTutorials/About us/About";
 
 const router = createBrowserRouter([
   {
@@ -117,6 +118,10 @@ const router = createBrowserRouter([
       {
         path: "/signIn",
         element: <SignIn />,
+      },
+      {
+        path: "/about",
+        element: <About></About>,
       },
     ],
   },
