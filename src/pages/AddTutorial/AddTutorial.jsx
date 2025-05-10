@@ -40,7 +40,7 @@ const AddTutorial = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-6 shadow-lg bg-white rounded-md">
+    <div className="max-w-3xl mx-auto mt-6 p-6 shadow-lg bg-white rounded-md">
       <h2 className="text-3xl text-center font-bold mb-6">Add Tutorial</h2>
       <form onSubmit={handleAddTutorial} className="space-y-4">
         {/* Name Field */}
