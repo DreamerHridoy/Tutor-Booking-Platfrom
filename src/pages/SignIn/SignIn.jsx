@@ -5,15 +5,14 @@ import AuthContext from "../../context/AuthContext/AuthContext";
 import SocialLogin from "../shared/SocialLogin";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import Swal from "sweetalert2"; // Import SweetAlert2
-import { useLocation, useNavigate } from "react-router-dom"; // Import useNavigate to redirect
+import Swal from "sweetalert2";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { signInUser } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
-  console.log("in signIn page", location);
   const from = location.state || "/";
 
   const handleSignIn = (e) => {
@@ -21,25 +20,19 @@ const SignIn = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
 
     signInUser(email, password)
       .then((result) => {
-        console.log(result.user);
-
-        // Show success alert with SweetAlert2
         Swal.fire({
           title: "Sign In Successful!",
           text: "You have signed in successfully.",
           icon: "success",
           confirmButtonText: "Go to Details Page",
         }).then(() => {
-          navigate(from); // Redirect to home page after success
+          navigate(from);
         });
       })
       .catch((error) => {
-        console.log(error.message);
-        // Optionally show an error alert here
         Swal.fire({
           title: "Sign In Failed!",
           text: error.message,
@@ -50,27 +43,34 @@ const SignIn = () => {
   };
 
   return (
-    <div className="hero bg-base-200 min-h-screen">
-      <div className="hero-content flex-col lg:flex-row-reverse">
-        <div className="text-center lg:text-left w-96">
-          <Lottie animationData={SignInLottie}></Lottie>
+    <div className="min-h-screen flex items-center justify-center bg-base-200 py-8 px-4 sm:px-6 lg:px-8">
+      <div className="flex flex-col-reverse lg:flex-row items-center w-full max-w-6xl mx-auto gap-8">
+        {/* Lottie Animation */}
+        <div className="w-full lg:w-1/2 flex justify-center">
+          <Lottie animationData={SignInLottie} className="w-full max-w-md" />
         </div>
-        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-          <h1 className="ml-8 mt-4 text-5xl font-bold">Sign In Now!</h1>
-          <form onSubmit={handleSignIn} className="card-body">
-            <div className="form-control">
+
+        {/* Sign In Form */}
+        <div className="w-full max-w-md bg-base-100 p-8 rounded-2xl shadow-2xl">
+          <h1 className="text-3xl md:text-4xl font-bold mb-6 text-center">
+            Sign In Now!
+          </h1>
+
+          <form onSubmit={handleSignIn}>
+            <div className="mb-4">
               <label className="label">
                 <span className="label-text">Email</span>
               </label>
               <input
                 type="email"
-                placeholder="email"
                 name="email"
-                className="input input-bordered"
+                placeholder="email"
+                className="input input-bordered w-full"
                 required
               />
             </div>
-            <div className="form-control relative">
+
+            <div className="mb-4 relative">
               <label className="label">
                 <span className="label-text">Password</span>
               </label>
@@ -78,13 +78,13 @@ const SignIn = () => {
                 type={showPassword ? "text" : "password"}
                 name="password"
                 placeholder="password"
-                className="input input-bordered"
+                className="input input-bordered w-full"
                 required
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-4 top-10 text-gray-500 focus:outline-none"
+                className="absolute right-4 top-10 text-gray-500"
               >
                 <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
               </button>
@@ -94,18 +94,25 @@ const SignIn = () => {
                 </a>
               </label>
             </div>
-            <div className="form-control mt-6">
-              <button className="btn btn-primary">Sign In</button>
+
+            <div className="mt-6">
+              <button type="submit" className="btn btn-primary w-full">
+                Sign In
+              </button>
             </div>
           </form>
-          <SocialLogin></SocialLogin>
 
-          {/* Registration Button */}
-          <div className="mt-4 text-center">
-            <p>Don't have an account?</p>
+          {/* Social Login */}
+          <div className="mt-4">
+            <SocialLogin />
+          </div>
+
+          {/* Register Link */}
+          <div className="mt-6 text-center">
+            <p className="text-sm">Don&apos;t have an account?</p>
             <button
-              onClick={() => navigate("/register")} // Navigates to the registration page
-              className="btn btn-link text-blue-500"
+              onClick={() => navigate("/register")}
+              className="btn btn-link text-blue-600 font-semibold"
             >
               Register Here
             </button>
